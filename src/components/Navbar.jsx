@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const links = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        <li className='mx-1'><NavLink to="/">Home</NavLink></li>
+        <li className='mx-1'><NavLink to="/addTask">Add A Task</NavLink></li>
+        <li className='mx-1'><NavLink to="/tasks">All Tasks</NavLink></li>
+        
     </>
     return (
         <div className="navbar bg-base-100">
@@ -37,7 +40,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn bg-orange-400 hover:bg-orange-500">Login</a>
+                <Link to="/login" className="px-6 py-2 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-semibold cursor-pointer">Login</Link>
             </div>
         </div>
     );

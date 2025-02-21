@@ -1,11 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const MainLayout = () => {
+    const location = useLocation();
+    const isLoggedIn = location.pathname.includes('login') || location.pathname.includes('signUp');
     return (
         <div className='w-11/12 mx-auto'>
-            <Navbar></Navbar>
+            {isLoggedIn || <Navbar></Navbar>}
             <Outlet></Outlet>
         </div>
     );
