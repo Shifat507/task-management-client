@@ -2,20 +2,29 @@ import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import loginAnimation from '../../assets/animation/login-animation.json'
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
-    const { register, handleSubmit, watch, formState: { errors }, } = useForm()
-    const { createUser } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm()
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
     const onSubmit = data => {
         console.log(data);
         const email = data.email
         const password = data.password
+        const name = data.name;
+        const photo = data.photoURL;
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                updateUserProfile(name, photo)
+                .then(()=>{
+                    reset();
+                })
+                .catch(error => {console.log("Error: ", error);})
+                navigate('/')
             })
     }
     return (
@@ -37,6 +46,17 @@ const SignUp = () => {
                                 name='name'
                                 placeholder="name" className="input input-bordered" />
                             {errors.name && <span className='text-sm text-red-600'>This field is required</span>}
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span
+                                    className="label-text">Photo URL</span>
+                            </label>
+                            <input type="url"
+                                {...register("photoURL", { required: true })}
+                                name='photoURL'
+                                placeholder="photoURL" className="input input-bordered" />
+                            {errors.name && <span className='text-sm text-red-600'>PhotoURL is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">

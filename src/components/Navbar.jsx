@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext);
     const links = <>
         <li className='mx-1'><NavLink to="/">Home</NavLink></li>
         <li className='mx-1'><NavLink to="/addTask">Add A Task</NavLink></li>
         <li className='mx-1'><NavLink to="/tasks">All Tasks</NavLink></li>
-        
+
     </>
+
+    const handleLogOut = () => {
+        logout()
+            .then(() => { })
+            .catch(err => { console.log('Error: ', err); })
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -40,7 +48,16 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login" className="px-6 py-2 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-semibold cursor-pointer">Login</Link>
+                {
+                    user ? <>
+                        <div className="avatar">
+                            <div className="ring-primary ring-offset-base-100 w-8 mx-3 rounded-full ring ring-offset-2">
+                                <img src={user.photoURL} />
+                            </div>
+                        </div>
+                        <button onClick={handleLogOut} className="px-6 py-2 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-semibold cursor-pointer">Logout</button>
+                    </> : <Link to="/login" className="px-6 py-2 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-semibold cursor-pointer">Login</Link>
+                }
             </div>
         </div>
     );

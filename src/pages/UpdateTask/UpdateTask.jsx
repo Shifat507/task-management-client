@@ -4,7 +4,7 @@ import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const AddTask = () => {
+const UpdateTask = () => {
     const [taskTitle, setTaskTitle] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
     const [status, setStatus] = useState('To Do');
@@ -51,7 +51,7 @@ const AddTask = () => {
 
     return (
         <div className="max-w-lg mx-auto p-6 bg-base-200 rounded-lg shadow-lg">
-            <h1 className="text-2xl font-bold text-center mb-6">Add a Task</h1>
+            <h1 className="text-2xl font-bold text-center mb-6">Update Task</h1>
             <form className="space-y-4" onSubmit={handleSubmit}>
                 {/* Task Title */}
                 <div className="form-control">
@@ -110,4 +110,4 @@ const AddTask = () => {
     );
 };
 
-export default AddTask;
+export default UpdateTask;
