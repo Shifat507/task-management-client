@@ -10,7 +10,7 @@ const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         const email = data.email
         const password = data.password
         const name = data.name;
@@ -18,7 +18,7 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 updateUserProfile(name, photo)
                 .then(()=>{
                     reset();

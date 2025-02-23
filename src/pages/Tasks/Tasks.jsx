@@ -6,7 +6,7 @@ const Tasks = () => {
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
         const loadTasks = async () => {
-            const resTasks = await axios.get('http://localhost:5000/tasks');
+            const resTasks = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/tasks');
             setTasks(resTasks.data); 
         };
         loadTasks();

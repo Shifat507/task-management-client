@@ -12,16 +12,16 @@ const Home = () => {
 
     useEffect(() => {
         const loadTasks = async () => {
-            const resLatestTask = await axios.get('http://localhost:5000/latestTask');
+            const resLatestTask = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/latestTask');
             setLatest(resLatestTask.data); // Corrected here
 
-            const resToDo = await axios.get('http://localhost:5000/toDo');
+            const resToDo = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/toDo');
             setToDo(resToDo.data);
 
-            const resInProgress = await axios.get('http://localhost:5000/inProgress');
+            const resInProgress = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/inProgress');
             setInProgress(resInProgress.data);
 
-            const resTaskDone = await axios.get('http://localhost:5000/taskDone');
+            const resTaskDone = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/taskDone');
             setTaskDone(resTaskDone.data);
         };
         loadTasks();
