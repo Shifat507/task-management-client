@@ -13,7 +13,7 @@ const Task = ({ task }) => {
             
             if (res.status === 200) {
                 alert("Task deleted successfully!");
-                window.location.reload(); // Refresh the page (or use state management)
+                window.location.reload();
             }
         } catch (error) {
             console.error("Error deleting task:", error);
