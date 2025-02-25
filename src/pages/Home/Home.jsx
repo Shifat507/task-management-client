@@ -12,16 +12,16 @@ const Home = () => {
 
     useEffect(() => {
         const loadTasks = async () => {
-            const resLatestTask = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/latestTask');
-            setLatest(resLatestTask.data); // Corrected here
+            const resLatestTask = await axios.get('https://task-management-server-pi-three.vercel.app/latestTask');
+            setLatest(resLatestTask.data); 
 
-            const resToDo = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/toDo');
+            const resToDo = await axios.get('https://task-management-server-pi-three.vercel.app/toDo');
             setToDo(resToDo.data);
 
-            const resInProgress = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/inProgress');
+            const resInProgress = await axios.get('https://task-management-server-pi-three.vercel.app/inProgress');
             setInProgress(resInProgress.data);
 
-            const resTaskDone = await axios.get('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/taskDone');
+            const resTaskDone = await axios.get('https://task-management-server-pi-three.vercel.app/taskDone');
             setTaskDone(resTaskDone.data);
         };
         loadTasks();

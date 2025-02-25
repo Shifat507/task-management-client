@@ -27,7 +27,7 @@ const UpdateTask = () => {
             time: currentTime,
         };
 
-        const response = await axios.post('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/addTask', newTask)
+        const response = await axios.post('http://localhost:5173/addTask', newTask)
         
         // console.log('Task added successfully:', response.data);
         if(response.data.insertedId){

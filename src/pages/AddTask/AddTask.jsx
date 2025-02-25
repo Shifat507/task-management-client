@@ -27,7 +27,7 @@ const AddTask = () => {
             time: currentTime,
         };
 
-        const response = await axios.post('https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/addTask', newTask)
+        const response = await axios.post('https://task-management-server-pi-three.vercel.app/addTask', newTask)
         
         // console.log('Task added successfully:', response.data);
         if(response.data.insertedId){
@@ -39,9 +39,6 @@ const AddTask = () => {
               navigate('/')
         }
         
-
-        // Log the task object (you can replace this with an API call or state update)
-        // console.log('New Task:', newTask);
 
         // Clear the form fields
         setTaskTitle('');

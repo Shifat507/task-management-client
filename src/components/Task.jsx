@@ -8,7 +8,7 @@ const Task = ({ task }) => {
     const handleDelete = async (id) => {
         try {
             // console.log("Deleting task with ID:", id);
-            const res = await axios.delete(`https://task-management-server-f6lzut9wa-shifats-projects-de733d81.vercel.app/task/${id}`);
+            const res = await axios.delete(`https://task-management-server-pi-three.vercel.app/task/${id}`);
             // console.log("Delete Response:", res.data);
             
             if (res.status === 200) {
